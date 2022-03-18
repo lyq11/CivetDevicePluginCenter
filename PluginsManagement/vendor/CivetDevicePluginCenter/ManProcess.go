@@ -164,10 +164,9 @@ func (st *Plugin) WriteBlock(_os *codec.Buffer, tag byte) error {
 type PluginBind struct {
 	ID         int32  `json:"ID"`
 	ProductID  string `json:"ProductID"`
-	PlugID     int32  `json:"PlugID"`
+	PluginID   int32  `json:"PluginID"`
 	Summarise  string `json:"Summarise"`
 	CreateTime string `json:"CreateTime"`
-	UpdateTime string `json:"UpdateTime"`
 }
 
 func (st *PluginBind) ResetDefault() {
@@ -191,7 +190,7 @@ func (st *PluginBind) ReadFrom(_is *codec.Reader) error {
 		return err
 	}
 
-	err = _is.Read_int32(&st.PlugID, 2, true)
+	err = _is.Read_int32(&st.PluginID, 2, true)
 	if err != nil {
 		return err
 	}
@@ -202,11 +201,6 @@ func (st *PluginBind) ReadFrom(_is *codec.Reader) error {
 	}
 
 	err = _is.Read_string(&st.CreateTime, 4, true)
-	if err != nil {
-		return err
-	}
-
-	err = _is.Read_string(&st.UpdateTime, 5, true)
 	if err != nil {
 		return err
 	}
@@ -262,7 +256,7 @@ func (st *PluginBind) WriteTo(_os *codec.Buffer) error {
 		return err
 	}
 
-	err = _os.Write_int32(st.PlugID, 2)
+	err = _os.Write_int32(st.PluginID, 2)
 	if err != nil {
 		return err
 	}
@@ -273,11 +267,6 @@ func (st *PluginBind) WriteTo(_os *codec.Buffer) error {
 	}
 
 	err = _os.Write_string(st.CreateTime, 4)
-	if err != nil {
-		return err
-	}
-
-	err = _os.Write_string(st.UpdateTime, 5)
 	if err != nil {
 		return err
 	}

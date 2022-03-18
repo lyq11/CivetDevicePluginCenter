@@ -436,8 +436,8 @@ func (_obj *ManProcess) DeletePluginOneWayWithContext(tarsCtx context.Context, p
 	return ret, nil
 }
 
-//EditPluginAddress is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) EditPluginAddress(plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+//EditPlugin is the proxy function for the method defined in the tars file, with the context
+func (_obj *ManProcess) EditPlugin(plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -474,7 +474,7 @@ func (_obj *ManProcess) EditPluginAddress(plugin *Plugin, searchKey string, sear
 	_resp := new(requestf.ResponsePacket)
 	tarsCtx := context.Background()
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "EditPluginAddress", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "EditPlugin", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -518,8 +518,8 @@ func (_obj *ManProcess) EditPluginAddress(plugin *Plugin, searchKey string, sear
 	return ret, nil
 }
 
-//EditPluginAddressWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) EditPluginAddressWithContext(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+//EditPluginWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *ManProcess) EditPluginWithContext(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -555,7 +555,7 @@ func (_obj *ManProcess) EditPluginAddressWithContext(tarsCtx context.Context, pl
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "EditPluginAddress", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "EditPlugin", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -599,8 +599,8 @@ func (_obj *ManProcess) EditPluginAddressWithContext(tarsCtx context.Context, pl
 	return ret, nil
 }
 
-//EditPluginAddressOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) EditPluginAddressOneWayWithContext(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+//EditPluginOneWayWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *ManProcess) EditPluginOneWayWithContext(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -636,7 +636,7 @@ func (_obj *ManProcess) EditPluginAddressOneWayWithContext(tarsCtx context.Conte
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 1, "EditPluginAddress", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 1, "EditPlugin", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -1812,7 +1812,7 @@ func (_obj *ManProcess) QueryBindAllOneWayWithContext(tarsCtx context.Context, o
 }
 
 //QueryBindWithProduct is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) QueryBindWithProduct(offset int32, limit int32, ProductID int32, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *ManProcess) QueryBindWithProduct(offset int32, limit int32, ProductID string, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1828,7 +1828,7 @@ func (_obj *ManProcess) QueryBindWithProduct(offset int32, limit int32, ProductI
 		return ret, err
 	}
 
-	err = _os.Write_int32(ProductID, 3)
+	err = _os.Write_string(ProductID, 3)
 	if err != nil {
 		return ret, err
 	}
@@ -1947,7 +1947,7 @@ func (_obj *ManProcess) QueryBindWithProduct(offset int32, limit int32, ProductI
 }
 
 //QueryBindWithProductWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) QueryBindWithProductWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *ManProcess) QueryBindWithProductWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1963,7 +1963,7 @@ func (_obj *ManProcess) QueryBindWithProductWithContext(tarsCtx context.Context,
 		return ret, err
 	}
 
-	err = _os.Write_int32(ProductID, 3)
+	err = _os.Write_string(ProductID, 3)
 	if err != nil {
 		return ret, err
 	}
@@ -2081,7 +2081,7 @@ func (_obj *ManProcess) QueryBindWithProductWithContext(tarsCtx context.Context,
 }
 
 //QueryBindWithProductOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *ManProcess) QueryBindWithProductOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *ManProcess) QueryBindWithProductOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]PluginBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2097,7 +2097,7 @@ func (_obj *ManProcess) QueryBindWithProductOneWayWithContext(tarsCtx context.Co
 		return ret, err
 	}
 
-	err = _os.Write_int32(ProductID, 3)
+	err = _os.Write_string(ProductID, 3)
 	if err != nil {
 		return ret, err
 	}
@@ -2555,23 +2555,23 @@ func (_obj *ManProcess) AddServantWithContext(imp _impManProcessWithContext, obj
 type _impManProcess interface {
 	CreatePlugin(plugin *Plugin, res *int32) (ret int32, err error)
 	DeletePlugin(pluginID int32, res *int32) (ret int32, err error)
-	EditPluginAddress(plugin *Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error)
+	EditPlugin(plugin *Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error)
 	QueryPlugins(offset int32, limit int32, Pluginlist *[]Plugin, count *int32, res *int32) (ret int32, err error)
 	Bind(relation *PluginBind, res *int32) (ret int32, err error)
 	UnBindWithID(relation *PluginBind, res *int32) (ret int32, err error)
 	QueryBindAll(offset int32, limit int32, result *[]PluginBind, count *int32, res *int32) (ret int32, err error)
-	QueryBindWithProduct(offset int32, limit int32, ProductID int32, result *[]PluginBind, res *int32) (ret int32, err error)
+	QueryBindWithProduct(offset int32, limit int32, ProductID string, result *[]PluginBind, res *int32) (ret int32, err error)
 	QueryBindWithPluginID(offset int32, limit int32, PluginID int32, result *[]PluginBind, res *int32) (ret int32, err error)
 }
 type _impManProcessWithContext interface {
 	CreatePlugin(tarsCtx context.Context, plugin *Plugin, res *int32) (ret int32, err error)
 	DeletePlugin(tarsCtx context.Context, pluginID int32, res *int32) (ret int32, err error)
-	EditPluginAddress(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error)
+	EditPlugin(tarsCtx context.Context, plugin *Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error)
 	QueryPlugins(tarsCtx context.Context, offset int32, limit int32, Pluginlist *[]Plugin, count *int32, res *int32) (ret int32, err error)
 	Bind(tarsCtx context.Context, relation *PluginBind, res *int32) (ret int32, err error)
 	UnBindWithID(tarsCtx context.Context, relation *PluginBind, res *int32) (ret int32, err error)
 	QueryBindAll(tarsCtx context.Context, offset int32, limit int32, result *[]PluginBind, count *int32, res *int32) (ret int32, err error)
-	QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]PluginBind, res *int32) (ret int32, err error)
+	QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]PluginBind, res *int32) (ret int32, err error)
 	QueryBindWithPluginID(tarsCtx context.Context, offset int32, limit int32, PluginID int32, result *[]PluginBind, res *int32) (ret int32, err error)
 }
 
@@ -2804,7 +2804,7 @@ func (_obj *ManProcess) Dispatch(tarsCtx context.Context, _val interface{}, tars
 				return err
 			}
 		}
-	case "EditPluginAddress":
+	case "EditPlugin":
 		var plugin Plugin
 		var searchKey string
 		var searchValue string
@@ -2890,10 +2890,10 @@ func (_obj *ManProcess) Dispatch(tarsCtx context.Context, _val interface{}, tars
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impManProcess)
-			_funRet_, err = _imp.EditPluginAddress(&plugin, searchKey, searchValue, &res)
+			_funRet_, err = _imp.EditPlugin(&plugin, searchKey, searchValue, &res)
 		} else {
 			_imp := _val.(_impManProcessWithContext)
-			_funRet_, err = _imp.EditPluginAddress(tarsCtx, &plugin, searchKey, searchValue, &res)
+			_funRet_, err = _imp.EditPlugin(tarsCtx, &plugin, searchKey, searchValue, &res)
 		}
 
 		if err != nil {
@@ -3550,7 +3550,7 @@ func (_obj *ManProcess) Dispatch(tarsCtx context.Context, _val interface{}, tars
 	case "QueryBindWithProduct":
 		var offset int32
 		var limit int32
-		var ProductID int32
+		var ProductID string
 		var result []PluginBind
 		var res int32
 
@@ -3566,7 +3566,7 @@ func (_obj *ManProcess) Dispatch(tarsCtx context.Context, _val interface{}, tars
 				return err
 			}
 
-			err = _is.Read_int32(&ProductID, 3, true)
+			err = _is.Read_string(&ProductID, 3, true)
 			if err != nil {
 				return err
 			}
@@ -3593,7 +3593,7 @@ func (_obj *ManProcess) Dispatch(tarsCtx context.Context, _val interface{}, tars
 
 			_reqTup_.GetBuffer("ProductID", &_tupBuffer_)
 			_is.Reset(_tupBuffer_)
-			err = _is.Read_int32(&ProductID, 0, true)
+			err = _is.Read_string(&ProductID, 0, true)
 			if err != nil {
 				return err
 			}

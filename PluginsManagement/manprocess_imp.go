@@ -15,6 +15,15 @@ import (
 type ManProcessImp struct {
 }
 
+func (imp *ManProcessImp) EditPlugin(tarsCtx context.Context, plugin *CivetDevicePluginCenter.Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error) {
+	if TarDB.EditRowByConditionbyModel(plugin, searchKey, searchValue) {
+		*res = 1
+		return 0, nil
+	} else {
+		return 0, errors.New("edit Fail")
+	}
+}
+
 func (imp *ManProcessImp) UnBindWithID(tarsCtx context.Context, relation *CivetDevicePluginCenter.PluginBind, res *int32) (ret int32, err error) {
 	if TarDB.DelRowByCondition(&CivetDevicePluginCenter.PluginBind{}, "id", relation.ID) {
 		*res = 1
@@ -110,7 +119,7 @@ func (imp *ManProcessImp) QueryBindAll(tarsCtx context.Context, offset int32, li
 	}
 }
 
-func (imp *ManProcessImp) QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CivetDevicePluginCenter.PluginBind, res *int32) (ret int32, err error) {
+func (imp *ManProcessImp) QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]CivetDevicePluginCenter.PluginBind, res *int32) (ret int32, err error) {
 	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "product_id", ProductID) {
 		*res = 1
 		return 0, nil
