@@ -1,0 +1,24 @@
+module CivetDevicePluginCenter
+{
+	struct TarsWarpPacket{
+		0 require map<string,string> Base;
+		1 require vector<string> Key;
+	};
+
+	struct Column{
+		0 require string Key;
+		1 require string Value;
+	};
+
+	interface DataBaseManager
+	{
+		int QueryDeviceWithCondition(string deviceNameJson,string companyID,out int Result);
+		int QueryDeviceCondition(string deviceNameJson,string companyID,string SearchKey ,string SearchValue,out vector<TarsWarpPacket> col,out int Result);
+		int QueryDeviceAll(string deviceNameJson,string companyID,out vector<TarsWarpPacket> col,out int Result);
+	    int CreateDevice(string deviceNameJson ,string companyID, vector<Column> col,out int Result); // Some example function
+	    int RemoveDevice(string deviceNameJson ,string companyID, string SearchKey ,string SearchValue,out int Result); // Some example function
+		int EditDevice(string deviceNameJson, string companyID,string SearchKey ,string SearchValue,vector<Column> col,out int Result);
+		int initDevice(string deviceNameJson,out int Result);
+	};
+
+};

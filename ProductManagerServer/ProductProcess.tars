@@ -1,0 +1,18 @@
+module CivetDevicePluginCenter
+{
+	struct Product{
+		0 optional int ID;
+		1 optional string ProductID;
+		2 optional string ProductName;
+		3 optional string platform;
+		4 optional string CreateTime;
+		5 optional string UpdateTime;
+	};
+	interface ProductProcess
+	{
+		int CreateProduct(Product product,out int res);
+		int EditProduct(Product ID,string Key,string Value,out int res);
+		int DeleteProduct(int productID,out int res);
+		int QueryAllProduct(int offset, int limit,out vector<Product>result,out int count,out int res);
+	};
+};

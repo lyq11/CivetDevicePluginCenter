@@ -1,0 +1,36 @@
+module CivetDevicePluginCenter
+{
+	struct Plugin{
+		0 optional int ID;
+		1 optional string Name;
+		2 optional bool Enable;
+		3 optional string Path;
+		4 optional string CreateTime;
+		5 optional string UpdateTime;
+	};
+
+	struct PluginBind{
+		0 require int ID;
+		1 require string ProductID;
+		2 require int PlugID;
+		3 require string Summarise;
+		4 require string CreateTime;
+		5 require string UpdateTime;
+
+	};
+
+	interface ManProcess
+	{
+		int CreatePlugin(Plugin plugin,out int res);
+		int DeletePlugin(int pluginID,out int res);
+		int EditPluginAddress(Plugin plugin,string searchKey,string searchValue,out int res);
+		int QueryPlugins(int offset, int limit,out vector<Plugin> Pluginlist,out int count,out int res);
+
+		int Bind(PluginBind relation,out int res); // bind the product with plug
+		int UnBindWithID(PluginBind relation,out int res);
+		int QueryBindAll(int offset,int limit,out vector<PluginBind>result,out int count,out int res);
+		int QueryBindWithProduct(int offset,int limit,int ProductID,out vector<PluginBind> result,out int res);
+		int QueryBindWithPluginID(int offset,int limit,int PluginID,out vector<PluginBind> result,out int res);
+
+	};
+};

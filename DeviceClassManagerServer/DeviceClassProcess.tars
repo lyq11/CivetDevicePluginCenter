@@ -1,0 +1,20 @@
+module CivetDevicePluginCenter
+{
+	struct DeviceClass{
+		0 optional int ID;
+		1 optional string Tag;
+		2 optional string Name;
+		3 optional string Router;
+		4 optional string permission;
+	};
+
+
+	interface DeviceClassProcess
+	{
+		/*-------------------------DeviceClass---------------------------*/
+		int CreateDeviceClass(DeviceClass info,out int res);
+		int RemoveDeviceClass(int DeviceClassID,out int res);
+		int EditDeviceClass(DeviceClass info,string searchKey,string searchValue,out int res);
+		int QueryAllDevice(int offset, int limit,out vector<DeviceClass> deviceClasslist,out int count,out int res);
+	};
+};
