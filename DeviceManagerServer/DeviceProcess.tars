@@ -2,7 +2,7 @@ module CivetDevicePluginCenter
 {
 	struct Device{
 		0 optional int ID;
-		1 optional int ProductID;
+		1 optional string ProductID;
 		2 optional int DeivceClassID;
 		3 optional string DeivceID;
 		4 optional int online;
@@ -11,8 +11,10 @@ module CivetDevicePluginCenter
 	interface DeviceProcess
 	{
 		int CreateDevice(Device device,out int res);
-		int RemoveDevice(int DeviceID,out int res);
+		int RemoveDevice(int ID,out int res);
 		int EditDevice(Device info,string searchKey,string searchValue,out int res);
+		int SetDeviceProperties(string DeviceID , string jsons, out int res);
+		int AnalyzeDevice(string ProductID ,string Data,out int res);
 		int QueryAllDevice(int offset, int limit,out vector<Device> devicelist,out int count,out int res);
 	};
 };

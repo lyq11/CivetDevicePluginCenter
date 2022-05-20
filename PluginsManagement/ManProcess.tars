@@ -28,8 +28,8 @@ module CivetDevicePluginCenter
 		int Bind(PluginBind relation,out int res); // bind the product with plug
 		int UnBindWithID(PluginBind relation,out int res);
 		int QueryBindAll(int offset,int limit,out vector<PluginBind>result,out int count,out int res);
-		int QueryBindWithProduct(int offset,int limit,string ProductID,out vector<PluginBind> result,out int res);
-		int QueryBindWithPluginID(int offset,int limit,int PluginID,out vector<PluginBind> result,out int res);
-
+		int QueryBindWithProduct(int offset,int limit,string ProductID,out vector<PluginBind> result,out int count,out int res);
+		int QueryBindWithProductKey(int offset,int limit,int ProductID,out vector<PluginBind> result,out int count,out int res);
+		int QueryBindWithPluginID(int offset,int limit,int PluginID,out vector<PluginBind> result,out int count,out int res);
 	};
 };

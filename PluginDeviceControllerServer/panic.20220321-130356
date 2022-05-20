@@ -1,0 +1,233 @@
+plugin: symbol ProductID not found in plugin plugin/unnamed-5b1db7c6c8f2c9cdc3f208595246d7fde8870cb4
+
+current running goroutine num: 20
+
+goroutine 30 [running]:
+github.com/TarsCloud/TarsGo/tars/util/debug.DumpStack(0x0, {0x96ed68, 0x5}, {0xc0002c8150, 0x64})
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/debug/debugtool.go:43 +0x85
+github.com/TarsCloud/TarsGo/tars.CheckPanic()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/panic.go:20 +0xae
+panic({0x90bde0, 0xc0002cc6b0})
+	/usr/local/go/src/runtime/panic.go:1038 +0x215
+Civets/CivetPluginsFrameWork.(*Plugins).CallFuncWithPString(0xc0001bee40, {0xc0002d42f4, 0x3}, {0x97010f, 0x9}, 0x0)
+	/home/lyq11/go/src/Civets/CivetPluginsFrameWork/CivetPluginFramework.go:70 +0x4c5
+main.(*PluginDeviceControllerImp).GetDeviceJson(0xc0001b6098, {0xc0002cc690, 0x1}, {0xc0002d42f4, 0x0}, 0x0, 0xc0002d42f0)
+	/home/lyq11/go/src/CivetDevicePluginCenter/PluginDeviceControllerServer/plugindevicecontroller_imp.go:18 +0x45
+CivetDevicePluginCenter/PluginDeviceControllerServer/vendor/CivetDevicePluginCenter.(*PluginDeviceController).Dispatch(0xc0001d17d0, {0xa12580, 0xc0001be030}, {0x95bbe0, 0xec7a78}, 0xc0002002a0, 0xc0001728c0, 0x1)
+	/home/lyq11/go/src/CivetDevicePluginCenter/PluginDeviceControllerServer/vendor/CivetDevicePluginCenter/PluginDeviceController.tars.go:3584 +0x453d
+github.com/TarsCloud/TarsGo/tars.(*TarsProtocol).Invoke(0xc0001bf3e0, {0xa12580, 0xc0001be030}, {0xc00009e150, 0x65, 0x65})
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/tarsprotocol.go:89 +0xa11
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).invoke(0xc0001da3f0, {0xa12580, 0xc0001be030}, {0xc00009e150, 0x0, 0x0})
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsserver.go:120 +0xaa
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).handleConn.func1()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:77 +0x105
+created by github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).handleConn
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:98 +0xe6
+
+goroutine 1 [select]:
+github.com/TarsCloud/TarsGo/tars.mainloop()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:473 +0x290
+github.com/TarsCloud/TarsGo/tars.Run()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:317 +0x24b
+main.main()
+	/home/lyq11/go/src/CivetDevicePluginCenter/PluginDeviceControllerServer/main.go:29 +0x105
+
+goroutine 6 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/gtime.init.0.func1()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/gtime/gtime.go:25 +0x77
+created by github.com/TarsCloud/TarsGo/tars/util/gtime.init.0
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/gtime/gtime.go:19 +0x145
+
+goroutine 7 [select]:
+github.com/TarsCloud/TarsGo/tars/util/rogger.flushLog()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rogger/logger.go:318 +0xcb
+created by github.com/TarsCloud/TarsGo/tars/util/rogger.init.0
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rogger/logger.go:58 +0x25
+
+goroutine 9 [chan receive, 1 minutes]:
+github.com/TarsCloud/TarsGo/tars.(*globalManager).updateEndpoints(0xc000013600)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/endpointmanager.go:117 +0x7c
+created by github.com/TarsCloud/TarsGo/tars.initOnceGManager.func1
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/endpointmanager.go:49 +0x105
+
+goroutine 10 [chan receive]:
+github.com/TarsCloud/TarsGo/tars.(*globalManager).checkEpStatus(0xc000013600)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/endpointmanager.go:101 +0x71
+created by github.com/TarsCloud/TarsGo/tars.initOnceGManager.func1
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/endpointmanager.go:50 +0x153
+
+goroutine 14 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/rtimer.(*TimeWheel).run(0xc0001ca480)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:84 +0x57
+created by github.com/TarsCloud/TarsGo/tars/util/rtimer.NewTimeWheel
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:57 +0x15d
+
+goroutine 15 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/rtimer.(*TimeWheel).run(0xc0001ca4c0)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:84 +0x57
+created by github.com/TarsCloud/TarsGo/tars/util/rtimer.NewTimeWheel
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:57 +0x15d
+
+goroutine 34 [IO wait]:
+internal/poll.runtime_pollWait(0x7f0dd7f1e8a0, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc00018ba00, 0xc00009a000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc00018ba00, {0xc00009a000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc00018ba00, {0xc00009a000, 0x91e540, 0xe97680})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc0002c2008, {0xc00009a000, 0xc000057e50, 0xe97680})
+	/usr/local/go/src/net/net.go:183 +0x45
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).recv(0xc00007ad70, {0xa17fc0, 0xc0002c2008}, 0x0)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:147 +0x14d
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:209 +0x2af
+
+goroutine 18 [chan receive]:
+github.com/TarsCloud/TarsGo/tars/util/rtimer.(*TimeWheel).run(0xc0001ca540)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:84 +0x57
+created by github.com/TarsCloud/TarsGo/tars/util/rtimer.NewTimeWheel
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/rtimer/timewheel.go:57 +0x15d
+
+goroutine 35 [select]:
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).send(0xc00007ad70, {0xa17fc0, 0xc0002c2008}, 0xc000013600)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:105 +0x13f
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:210 +0x348
+
+goroutine 36 [IO wait]:
+internal/poll.runtime_pollWait(0x7f0dd7f1e7b8, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc00018bb80, 0xc0002d0000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc00018bb80, {0xc0002d0000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc00018bb80, {0xc0002d0000, 0x91e540, 0xe97680})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc0002c2010, {0xc0002d0000, 0xc000212e50, 0xe97680})
+	/usr/local/go/src/net/net.go:183 +0x45
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).recv(0xc00007b040, {0xa17fc0, 0xc0002c2010}, 0x0)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:147 +0x14d
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:209 +0x2af
+
+goroutine 37 [select]:
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).send(0xc00007b040, {0xa17fc0, 0xc0002c2010}, 0xc000013600)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:105 +0x13f
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:210 +0x348
+
+goroutine 23 [IO wait]:
+internal/poll.runtime_pollWait(0x7f0dd7f1e6d0, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc0000ea500, 0x30000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0xc0000ea500)
+	/usr/local/go/src/internal/poll/fd_unix.go:402 +0x22c
+net.(*netFD).accept(0xc0000ea500)
+	/usr/local/go/src/net/fd_unix.go:173 +0x35
+net.(*TCPListener).accept(0xc0000c11b8)
+	/usr/local/go/src/net/tcpsock_posix.go:140 +0x28
+net.(*TCPListener).AcceptTCP(0xc0000c11b8)
+	/usr/local/go/src/net/tcpsock.go:249 +0x3d
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle(0xc00042c000)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:114 +0xa5
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).Serve(...)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsserver.go:74
+github.com/TarsCloud/TarsGo/tars.Run.func2({0xc000020370, 0x4e})
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:301 +0x122
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:293 +0x568
+
+goroutine 24 [IO wait]:
+internal/poll.runtime_pollWait(0x7f0dd7f1e500, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc0002ee000, 0xc0000326d8, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0xc0002ee000)
+	/usr/local/go/src/internal/poll/fd_unix.go:402 +0x22c
+net.(*netFD).accept(0xc0002ee000)
+	/usr/local/go/src/net/fd_unix.go:173 +0x35
+net.(*TCPListener).accept(0xc0000c11d0)
+	/usr/local/go/src/net/tcpsock_posix.go:140 +0x28
+net.(*TCPListener).AcceptTCP(0xc0000c11d0)
+	/usr/local/go/src/net/tcpsock.go:249 +0x3d
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle(0xc0002ea000)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:114 +0xa5
+github.com/TarsCloud/TarsGo/tars/transport.(*TarsServer).Serve(...)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsserver.go:74
+github.com/TarsCloud/TarsGo/tars.Run.func2({0x96f9ec, 0x8})
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:301 +0x122
+created by github.com/TarsCloud/TarsGo/tars.Run
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:293 +0x568
+
+goroutine 40 [select]:
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).send(0xc00007b360, {0xa17fc0, 0xc0002c2070}, 0x0)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:105 +0x13f
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:210 +0x348
+
+goroutine 53 [chan receive, 1 minutes]:
+github.com/TarsCloud/TarsGo/tars/util/grace.GraceHandler(0x98ed48, 0x98ed50)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/util/grace/signal_unix.go:18 +0xcf
+github.com/TarsCloud/TarsGo/tars.handleSignal()
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:455 +0x27
+created by github.com/TarsCloud/TarsGo/tars.mainloop
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/application.go:469 +0x213
+
+goroutine 39 [IO wait]:
+internal/poll.runtime_pollWait(0x7f0dd7f1e5e8, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc00018bc80, 0xc000452000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc00018bc80, {0xc000452000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc00018bc80, {0xc000452000, 0x91e540, 0xe97680})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc0002c2070, {0xc000452000, 0xc000059e50, 0xe97680})
+	/usr/local/go/src/net/net.go:183 +0x45
+github.com/TarsCloud/TarsGo/tars/transport.(*connection).recv(0xc00007b360, {0xa17fc0, 0xc0002c2070}, 0x0)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:147 +0x14d
+created by github.com/TarsCloud/TarsGo/tars/transport.(*connection).ReConnect
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tarsclient.go:209 +0x2af
+
+goroutine 55 [syscall, 1 minutes]:
+os/signal.signal_recv()
+	/usr/local/go/src/runtime/sigqueue.go:169 +0x98
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:24 +0x19
+created by os/signal.Notify.func1.1
+	/usr/local/go/src/os/signal/signal.go:151 +0x2c
+
+goroutine 29 [syscall]:
+syscall.Syscall(0x0, 0x7, 0xc00011cd80, 0x1000)
+	/usr/local/go/src/syscall/asm_linux_amd64.s:20 +0x5
+syscall.read(0xc0002ee080, {0xc00011cd80, 0x0, 0xc00011cc90})
+	/usr/local/go/src/syscall/zsyscall_linux_amd64.go:687 +0x4d
+syscall.Read(...)
+	/usr/local/go/src/syscall/syscall_unix.go:189
+internal/poll.ignoringEINTRIO(...)
+	/usr/local/go/src/internal/poll/fd_unix.go:582
+internal/poll.(*FD).Read(0xc0002ee080, {0xc00011cd80, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:163 +0x285
+net.(*netFD).Read(0xc0002ee080, {0xc00011cd80, 0x6238073c, 0x3b16ec4d})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc0000c4018, {0xc00011cd80, 0xc00009e150, 0x65})
+	/usr/local/go/src/net/net.go:183 +0x45
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).recv(0xc00042c000, 0xc000012180)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:230 +0x2bd
+github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle.func1(0xc0000c4018)
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:135 +0x337
+created by github.com/TarsCloud/TarsGo/tars/transport.(*tcpHandler).Handle
+	/home/lyq11/go/src/github.com/TarsCloud/TarsGo/tars/transport/tcphandler.go:124 +0x225

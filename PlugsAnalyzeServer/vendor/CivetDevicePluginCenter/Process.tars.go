@@ -30,14 +30,14 @@ type Process struct {
 	s m.Servant
 }
 
-//LoadPlugins is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadPlugins(c *Results, _opt ...map[string]string) (ret int32, err error) {
+//Reboot is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) Reboot(c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -53,13 +53,18 @@ func (_obj *Process) LoadPlugins(c *Results, _opt ...map[string]string) (ret int
 	_resp := new(requestf.ResponsePacket)
 	tarsCtx := context.Background()
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "LoadPlugins", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "reboot", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
 
 	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
 	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*c), 1, true)
 	if err != nil {
 		return ret, err
 	}
@@ -92,14 +97,14 @@ func (_obj *Process) LoadPlugins(c *Results, _opt ...map[string]string) (ret int
 	return ret, nil
 }
 
-//LoadPluginsWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadPluginsWithContext(tarsCtx context.Context, c *Results, _opt ...map[string]string) (ret int32, err error) {
+//RebootWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) RebootWithContext(tarsCtx context.Context, c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -114,13 +119,18 @@ func (_obj *Process) LoadPluginsWithContext(tarsCtx context.Context, c *Results,
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "LoadPlugins", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "reboot", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
 
 	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
 	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*c), 1, true)
 	if err != nil {
 		return ret, err
 	}
@@ -153,14 +163,14 @@ func (_obj *Process) LoadPluginsWithContext(tarsCtx context.Context, c *Results,
 	return ret, nil
 }
 
-//LoadPluginsOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadPluginsOneWayWithContext(tarsCtx context.Context, c *Results, _opt ...map[string]string) (ret int32, err error) {
+//RebootOneWayWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) RebootOneWayWithContext(tarsCtx context.Context, c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -175,7 +185,7 @@ func (_obj *Process) LoadPluginsOneWayWithContext(tarsCtx context.Context, c *Re
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 1, "LoadPlugins", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 1, "reboot", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -208,14 +218,14 @@ func (_obj *Process) LoadPluginsOneWayWithContext(tarsCtx context.Context, c *Re
 	return ret, nil
 }
 
-//LoadBinds is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadBinds(c *Results, _opt ...map[string]string) (ret int32, err error) {
+//Shutdown is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) Shutdown(c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -231,13 +241,18 @@ func (_obj *Process) LoadBinds(c *Results, _opt ...map[string]string) (ret int32
 	_resp := new(requestf.ResponsePacket)
 	tarsCtx := context.Background()
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "LoadBinds", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "shutdown", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
 
 	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
 	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*c), 1, true)
 	if err != nil {
 		return ret, err
 	}
@@ -270,14 +285,14 @@ func (_obj *Process) LoadBinds(c *Results, _opt ...map[string]string) (ret int32
 	return ret, nil
 }
 
-//LoadBindsWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadBindsWithContext(tarsCtx context.Context, c *Results, _opt ...map[string]string) (ret int32, err error) {
+//ShutdownWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) ShutdownWithContext(tarsCtx context.Context, c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -292,13 +307,18 @@ func (_obj *Process) LoadBindsWithContext(tarsCtx context.Context, c *Results, _
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 0, "LoadBinds", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "shutdown", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
 
 	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
 	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*c), 1, true)
 	if err != nil {
 		return ret, err
 	}
@@ -331,14 +351,14 @@ func (_obj *Process) LoadBindsWithContext(tarsCtx context.Context, c *Results, _
 	return ret, nil
 }
 
-//LoadBindsOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *Process) LoadBindsOneWayWithContext(tarsCtx context.Context, c *Results, _opt ...map[string]string) (ret int32, err error) {
+//ShutdownOneWayWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *Process) ShutdownOneWayWithContext(tarsCtx context.Context, c *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = c.WriteBlock(_os, 1)
+	err = _os.Write_int32((*c), 1)
 	if err != nil {
 		return ret, err
 	}
@@ -353,7 +373,7 @@ func (_obj *Process) LoadBindsOneWayWithContext(tarsCtx context.Context, c *Resu
 	}
 	_resp := new(requestf.ResponsePacket)
 
-	err = _obj.s.Tars_invoke(tarsCtx, 1, "LoadBinds", _os.ToBytes(), _status, _context, _resp)
+	err = _obj.s.Tars_invoke(tarsCtx, 1, "shutdown", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -412,12 +432,12 @@ func (_obj *Process) AddServantWithContext(imp _impProcessWithContext, obj strin
 }
 
 type _impProcess interface {
-	LoadPlugins(c *Results) (ret int32, err error)
-	LoadBinds(c *Results) (ret int32, err error)
+	Reboot(c *int32) (ret int32, err error)
+	Shutdown(c *int32) (ret int32, err error)
 }
 type _impProcessWithContext interface {
-	LoadPlugins(tarsCtx context.Context, c *Results) (ret int32, err error)
-	LoadBinds(tarsCtx context.Context, c *Results) (ret int32, err error)
+	Reboot(tarsCtx context.Context, c *int32) (ret int32, err error)
+	Shutdown(tarsCtx context.Context, c *int32) (ret int32, err error)
 }
 
 // Dispatch is used to call the server side implemnet for the method defined in the tars file. _withContext shows using context or not.
@@ -428,57 +448,16 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 	_is := codec.NewReader(tools.Int8ToByte(tarsReq.SBuffer))
 	_os := codec.NewBuffer()
 	switch tarsReq.SFuncName {
-	case "LoadPlugins":
-		var c Results
-
-		if tarsReq.IVersion == basef.TARSVERSION {
-
-			err = c.ReadBlock(_is, 1, true)
-			if err != nil {
-				return err
-			}
-
-		} else if tarsReq.IVersion == basef.TUPVERSION {
-			_reqTup_ := tup.NewUniAttribute()
-			_reqTup_.Decode(_is)
-
-			var _tupBuffer_ []byte
-
-			_reqTup_.GetBuffer("c", &_tupBuffer_)
-			_is.Reset(_tupBuffer_)
-			err = c.ReadBlock(_is, 0, true)
-			if err != nil {
-				return err
-			}
-
-		} else if tarsReq.IVersion == basef.JSONVERSION {
-			var _jsonDat_ map[string]interface{}
-			_decoder_ := json.NewDecoder(bytes.NewReader(_is.ToBytes()))
-			_decoder_.UseNumber()
-			err = _decoder_.Decode(&_jsonDat_)
-			if err != nil {
-				return fmt.Errorf("Decode reqpacket failed, error: %+v", err)
-			}
-			{
-				_jsonStr_, _ := json.Marshal(_jsonDat_["c"])
-				c.ResetDefault()
-				if err = json.Unmarshal([]byte(_jsonStr_), &c); err != nil {
-					return err
-				}
-			}
-
-		} else {
-			err = fmt.Errorf("Decode reqpacket fail, error version: %d", tarsReq.IVersion)
-			return err
-		}
+	case "reboot":
+		var c int32
 
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impProcess)
-			_funRet_, err = _imp.LoadPlugins(&c)
+			_funRet_, err = _imp.Reboot(&c)
 		} else {
 			_imp := _val.(_impProcessWithContext)
-			_funRet_, err = _imp.LoadPlugins(tarsCtx, &c)
+			_funRet_, err = _imp.Reboot(tarsCtx, &c)
 		}
 
 		if err != nil {
@@ -489,6 +468,11 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 			_os.Reset()
 
 			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(c, 1)
 			if err != nil {
 				return err
 			}
@@ -505,6 +489,14 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 			_tupRsp_.PutBuffer("tars_ret", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(c, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("c", _os.ToBytes())
+
+			_os.Reset()
 			err = _tupRsp_.Encode(_os)
 			if err != nil {
 				return err
@@ -512,6 +504,7 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 		} else if tarsReq.IVersion == basef.JSONVERSION {
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
+			_rspJson_["c"] = c
 
 			var _rspByte_ []byte
 			if _rspByte_, err = json.Marshal(_rspJson_); err != nil {
@@ -524,57 +517,16 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 				return err
 			}
 		}
-	case "LoadBinds":
-		var c Results
-
-		if tarsReq.IVersion == basef.TARSVERSION {
-
-			err = c.ReadBlock(_is, 1, true)
-			if err != nil {
-				return err
-			}
-
-		} else if tarsReq.IVersion == basef.TUPVERSION {
-			_reqTup_ := tup.NewUniAttribute()
-			_reqTup_.Decode(_is)
-
-			var _tupBuffer_ []byte
-
-			_reqTup_.GetBuffer("c", &_tupBuffer_)
-			_is.Reset(_tupBuffer_)
-			err = c.ReadBlock(_is, 0, true)
-			if err != nil {
-				return err
-			}
-
-		} else if tarsReq.IVersion == basef.JSONVERSION {
-			var _jsonDat_ map[string]interface{}
-			_decoder_ := json.NewDecoder(bytes.NewReader(_is.ToBytes()))
-			_decoder_.UseNumber()
-			err = _decoder_.Decode(&_jsonDat_)
-			if err != nil {
-				return fmt.Errorf("Decode reqpacket failed, error: %+v", err)
-			}
-			{
-				_jsonStr_, _ := json.Marshal(_jsonDat_["c"])
-				c.ResetDefault()
-				if err = json.Unmarshal([]byte(_jsonStr_), &c); err != nil {
-					return err
-				}
-			}
-
-		} else {
-			err = fmt.Errorf("Decode reqpacket fail, error version: %d", tarsReq.IVersion)
-			return err
-		}
+	case "shutdown":
+		var c int32
 
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impProcess)
-			_funRet_, err = _imp.LoadBinds(&c)
+			_funRet_, err = _imp.Shutdown(&c)
 		} else {
 			_imp := _val.(_impProcessWithContext)
-			_funRet_, err = _imp.LoadBinds(tarsCtx, &c)
+			_funRet_, err = _imp.Shutdown(tarsCtx, &c)
 		}
 
 		if err != nil {
@@ -585,6 +537,11 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 			_os.Reset()
 
 			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(c, 1)
 			if err != nil {
 				return err
 			}
@@ -601,6 +558,14 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 			_tupRsp_.PutBuffer("tars_ret", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(c, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("c", _os.ToBytes())
+
+			_os.Reset()
 			err = _tupRsp_.Encode(_os)
 			if err != nil {
 				return err
@@ -608,6 +573,7 @@ func (_obj *Process) Dispatch(tarsCtx context.Context, _val interface{}, tarsReq
 		} else if tarsReq.IVersion == basef.JSONVERSION {
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
+			_rspJson_["c"] = c
 
 			var _rspByte_ []byte
 			if _rspByte_, err = json.Marshal(_rspJson_); err != nil {

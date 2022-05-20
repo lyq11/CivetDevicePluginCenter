@@ -15,6 +15,36 @@ import (
 type ManProcessImp struct {
 }
 
+func (imp *ManProcessImp) QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]CivetDevicePluginCenter.PluginBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "product_id", ProductID) {
+		*res = 1
+		return 0, nil
+	} else {
+		*res = -1
+		return 0, errors.New("queryFail")
+	}
+}
+
+func (imp *ManProcessImp) QueryBindWithProductKey(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CivetDevicePluginCenter.PluginBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "id", ProductID) {
+		*res = 1
+		return 0, nil
+	} else {
+		*res = -1
+		return 0, errors.New("queryFail")
+	}
+}
+
+func (imp *ManProcessImp) QueryBindWithPluginID(tarsCtx context.Context, offset int32, limit int32, PluginID int32, result *[]CivetDevicePluginCenter.PluginBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "plugin_id", PluginID) {
+		*res = 1
+		return 0, nil
+	} else {
+		*res = -1
+		return 0, errors.New("queryFail")
+	}
+}
+
 func (imp *ManProcessImp) EditPlugin(tarsCtx context.Context, plugin *CivetDevicePluginCenter.Plugin, searchKey string, searchValue string, res *int32) (ret int32, err error) {
 	if TarDB.EditRowByConditionbyModel(plugin, searchKey, searchValue) {
 		*res = 1
@@ -111,26 +141,6 @@ func (imp *ManProcessImp) Bind(tarsCtx context.Context, relation *CivetDevicePlu
 
 func (imp *ManProcessImp) QueryBindAll(tarsCtx context.Context, offset int32, limit int32, result *[]CivetDevicePluginCenter.PluginBind, count *int32, res *int32) (ret int32, err error) {
 	if TarDB.QueryRowsAllWithOSLM(int(offset), int(limit), count, result) {
-		*res = 1
-		return 0, nil
-	} else {
-		*res = -1
-		return 0, errors.New("queryFail")
-	}
-}
-
-func (imp *ManProcessImp) QueryBindWithProduct(tarsCtx context.Context, offset int32, limit int32, ProductID string, result *[]CivetDevicePluginCenter.PluginBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "product_id", ProductID) {
-		*res = 1
-		return 0, nil
-	} else {
-		*res = -1
-		return 0, errors.New("queryFail")
-	}
-}
-
-func (imp *ManProcessImp) QueryBindWithPluginID(tarsCtx context.Context, offset int32, limit int32, PluginID int32, result *[]CivetDevicePluginCenter.PluginBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "plugin_id", PluginID) {
 		*res = 1
 		return 0, nil
 	} else {

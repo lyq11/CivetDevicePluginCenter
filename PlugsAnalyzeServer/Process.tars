@@ -1,12 +1,8 @@
 module CivetDevicePluginCenter
 {
-	struct Results{
-		0 optional int res;
-		1 optional string msg;
-	};
 	interface Process
 	{
-	    int LoadPlugins(Results c); // Some example function
-	    int LoadBinds(Results c); // Some example function
+	    int reboot(out int c); // Some example function
+	    int shutdown(out int c); // Some example function
 	};
 };

@@ -1,0 +1,30 @@
+module CivetDevicePluginCenter
+{
+	struct TarsWarpPacket{
+		0 require map<string,string> Base;
+		1 require vector<string> Key;
+	};
+
+	struct Column{
+		0 require string Key;
+		1 require string Value;
+	};
+
+	interface PluginDeviceProcess
+	{
+		int QueryDeviceWithCondition(string deviceNameJson,out int Result);
+		int QueryDeviceCondition(string deviceNameJson,string SearchKey ,string SearchValue,out vector<TarsWarpPacket> col,out int Result);
+		int QueryDeviceAll(string deviceNameJson,int offset, int limit,out vector<TarsWarpPacket> col,out int count,out int Result);
+		int CreateDevice(string deviceNameJson, vector<Column> col,out int Result);
+		int RemoveDevice(string deviceNameJson,string SearchKey ,string SearchValue,out int Result);
+		int EditDevice(string deviceNameJson,string SearchKey ,string SearchValue,vector<Column> col,out int Result);
+
+
+		int BindDeviceCompany(string deviceNameJson ,string companyID, vector<Column> col,out int Result); // Some example function
+		int UnbindDeviceCompany(string deviceNameJson ,string companyID, string SearchKey ,string SearchValue,out int Result); // Some example function
+		int QueryBindDeviceWithCondition(string deviceNameJson,string companyID,out int Result);
+		int QueryBindDeviceCondition(string deviceNameJson,string companyID,string SearchKey ,string SearchValue,out vector<TarsWarpPacket> col,out int Result);
+		int QueryBindDevicecAll(string deviceNameJson,int offset, int limit,string companyID,out vector<TarsWarpPacket> col,out int count,out int Result);
+		int initDevice(string deviceNameJson,out int Result);
+	};
+};

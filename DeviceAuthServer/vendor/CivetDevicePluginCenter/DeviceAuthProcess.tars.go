@@ -805,7 +805,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyDeviceCBindAllOneWayWithContext(tarsC
 }
 
 //QueryCompanyBindWithDeviceC is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceC(offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceC(offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -845,7 +845,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceC(offset int32, limit i
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -906,7 +911,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceC(offset int32, limit i
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -940,7 +950,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceC(offset int32, limit i
 }
 
 //QueryCompanyBindWithDeviceCWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCWithContext(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCWithContext(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -980,7 +990,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCWithContext(tarsCtx co
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -1040,7 +1055,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCWithContext(tarsCtx co
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -1074,7 +1094,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCWithContext(tarsCtx co
 }
 
 //QueryCompanyBindWithDeviceCOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1114,7 +1134,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCOneWayWithContext(tars
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -1163,7 +1188,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithDeviceCOneWayWithContext(tars
 }
 
 //QueryDeviceCBindWithCompanyID is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1203,7 +1228,12 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyID(offset int32, limit
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -1264,7 +1294,12 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyID(offset int32, limit
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -1298,7 +1333,7 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyID(offset int32, limit
 }
 
 //QueryDeviceCBindWithCompanyIDWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1338,7 +1373,12 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDWithContext(tarsCtx 
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -1398,7 +1438,12 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDWithContext(tarsCtx 
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -1432,7 +1477,7 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDWithContext(tarsCtx 
 }
 
 //QueryDeviceCBindWithCompanyIDOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -1472,7 +1517,12 @@ func (_obj *DeviceAuthProcess) QueryDeviceCBindWithCompanyIDOneWayWithContext(ta
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2295,7 +2345,7 @@ func (_obj *DeviceAuthProcess) QueryProductCompanyBindAllOneWayWithContext(tarsC
 }
 
 //QueryCompanyBindWithProductID is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductID(offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductID(offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2335,7 +2385,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductID(offset int32, limit
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2396,7 +2451,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductID(offset int32, limit
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -2430,7 +2490,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductID(offset int32, limit
 }
 
 //QueryCompanyBindWithProductIDWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2470,7 +2530,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDWithContext(tarsCtx 
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2530,7 +2595,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDWithContext(tarsCtx 
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -2564,7 +2634,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDWithContext(tarsCtx 
 }
 
 //QueryCompanyBindWithProductIDOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2604,7 +2674,12 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDOneWayWithContext(ta
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2653,7 +2728,7 @@ func (_obj *DeviceAuthProcess) QueryCompanyBindWithProductIDOneWayWithContext(ta
 }
 
 //QueryProductBindWithCompanyID is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2693,7 +2768,12 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyID(offset int32, limit
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2754,7 +2834,12 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyID(offset int32, limit
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -2788,7 +2873,7 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyID(offset int32, limit
 }
 
 //QueryProductBindWithCompanyIDWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2828,7 +2913,12 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDWithContext(tarsCtx 
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -2888,7 +2978,12 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDWithContext(tarsCtx 
 
 	}
 
-	err = _is.Read_int32(&(*res), 5, true)
+	err = _is.Read_int32(&(*count), 5, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 6, true)
 	if err != nil {
 		return ret, err
 	}
@@ -2922,7 +3017,7 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDWithContext(tarsCtx 
 }
 
 //QueryProductBindWithCompanyIDOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDOneWayWithContext(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, count *int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
@@ -2962,7 +3057,12 @@ func (_obj *DeviceAuthProcess) QueryProductBindWithCompanyIDOneWayWithContext(ta
 
 	}
 
-	err = _os.Write_int32((*res), 5)
+	err = _os.Write_int32((*count), 5)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 6)
 	if err != nil {
 		return ret, err
 	}
@@ -3039,25 +3139,25 @@ type _impDeviceAuthProcess interface {
 	BindDeviceCompany(relation *CompanyDeivceBind, res *int32) (ret int32, err error)
 	UnBindDeviceCompany(relation *CompanyDeivceBind, res *int32) (ret int32, err error)
 	QueryCompanyDeviceCBindAll(offset int32, limit int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
-	QueryCompanyBindWithDeviceC(offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, res *int32) (ret int32, err error)
-	QueryDeviceCBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, res *int32) (ret int32, err error)
+	QueryCompanyBindWithDeviceC(offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
+	QueryDeviceCBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
 	BindProductCompany(relation *CompanyProductBind, res *int32) (ret int32, err error)
 	UnBindProductCompany(relation *CompanyProductBind, res *int32) (ret int32, err error)
 	QueryProductCompanyBindAll(offset int32, limit int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
-	QueryCompanyBindWithProductID(offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, res *int32) (ret int32, err error)
-	QueryProductBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, res *int32) (ret int32, err error)
+	QueryCompanyBindWithProductID(offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
+	QueryProductBindWithCompanyID(offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
 }
 type _impDeviceAuthProcessWithContext interface {
 	BindDeviceCompany(tarsCtx context.Context, relation *CompanyDeivceBind, res *int32) (ret int32, err error)
 	UnBindDeviceCompany(tarsCtx context.Context, relation *CompanyDeivceBind, res *int32) (ret int32, err error)
 	QueryCompanyDeviceCBindAll(tarsCtx context.Context, offset int32, limit int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
-	QueryCompanyBindWithDeviceC(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, res *int32) (ret int32, err error)
-	QueryDeviceCBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, res *int32) (ret int32, err error)
+	QueryCompanyBindWithDeviceC(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
+	QueryDeviceCBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyDeivceBind, count *int32, res *int32) (ret int32, err error)
 	BindProductCompany(tarsCtx context.Context, relation *CompanyProductBind, res *int32) (ret int32, err error)
 	UnBindProductCompany(tarsCtx context.Context, relation *CompanyProductBind, res *int32) (ret int32, err error)
 	QueryProductCompanyBindAll(tarsCtx context.Context, offset int32, limit int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
-	QueryCompanyBindWithProductID(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, res *int32) (ret int32, err error)
-	QueryProductBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, res *int32) (ret int32, err error)
+	QueryCompanyBindWithProductID(tarsCtx context.Context, offset int32, limit int32, ProductID int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
+	QueryProductBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CompanyProductBind, count *int32, res *int32) (ret int32, err error)
 }
 
 // Dispatch is used to call the server side implemnet for the method defined in the tars file. _withContext shows using context or not.
@@ -3481,6 +3581,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var limit int32
 		var DeviceClassID int32
 		var result []CompanyDeivceBind
+		var count int32
 		var res int32
 
 		if tarsReq.IVersion == basef.TARSVERSION {
@@ -3562,10 +3663,10 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impDeviceAuthProcess)
-			_funRet_, err = _imp.QueryCompanyBindWithDeviceC(offset, limit, DeviceClassID, &result, &res)
+			_funRet_, err = _imp.QueryCompanyBindWithDeviceC(offset, limit, DeviceClassID, &result, &count, &res)
 		} else {
 			_imp := _val.(_impDeviceAuthProcessWithContext)
-			_funRet_, err = _imp.QueryCompanyBindWithDeviceC(tarsCtx, offset, limit, DeviceClassID, &result, &res)
+			_funRet_, err = _imp.QueryCompanyBindWithDeviceC(tarsCtx, offset, limit, DeviceClassID, &result, &count, &res)
 		}
 
 		if err != nil {
@@ -3599,7 +3700,12 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 
 			}
 
-			err = _os.Write_int32(res, 5)
+			err = _os.Write_int32(count, 5)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 6)
 			if err != nil {
 				return err
 			}
@@ -3637,6 +3743,14 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_tupRsp_.PutBuffer("result", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(count, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("count", _os.ToBytes())
+
+			_os.Reset()
 			err = _os.Write_int32(res, 0)
 			if err != nil {
 				return err
@@ -3653,6 +3767,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
 			_rspJson_["result"] = result
+			_rspJson_["count"] = count
 			_rspJson_["res"] = res
 
 			var _rspByte_ []byte
@@ -3671,6 +3786,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var limit int32
 		var CompanyID int32
 		var result []CompanyDeivceBind
+		var count int32
 		var res int32
 
 		if tarsReq.IVersion == basef.TARSVERSION {
@@ -3752,10 +3868,10 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impDeviceAuthProcess)
-			_funRet_, err = _imp.QueryDeviceCBindWithCompanyID(offset, limit, CompanyID, &result, &res)
+			_funRet_, err = _imp.QueryDeviceCBindWithCompanyID(offset, limit, CompanyID, &result, &count, &res)
 		} else {
 			_imp := _val.(_impDeviceAuthProcessWithContext)
-			_funRet_, err = _imp.QueryDeviceCBindWithCompanyID(tarsCtx, offset, limit, CompanyID, &result, &res)
+			_funRet_, err = _imp.QueryDeviceCBindWithCompanyID(tarsCtx, offset, limit, CompanyID, &result, &count, &res)
 		}
 
 		if err != nil {
@@ -3789,7 +3905,12 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 
 			}
 
-			err = _os.Write_int32(res, 5)
+			err = _os.Write_int32(count, 5)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 6)
 			if err != nil {
 				return err
 			}
@@ -3827,6 +3948,14 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_tupRsp_.PutBuffer("result", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(count, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("count", _os.ToBytes())
+
+			_os.Reset()
 			err = _os.Write_int32(res, 0)
 			if err != nil {
 				return err
@@ -3843,6 +3972,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
 			_rspJson_["result"] = result
+			_rspJson_["count"] = count
 			_rspJson_["res"] = res
 
 			var _rspByte_ []byte
@@ -4269,6 +4399,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var limit int32
 		var ProductID int32
 		var result []CompanyProductBind
+		var count int32
 		var res int32
 
 		if tarsReq.IVersion == basef.TARSVERSION {
@@ -4350,10 +4481,10 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impDeviceAuthProcess)
-			_funRet_, err = _imp.QueryCompanyBindWithProductID(offset, limit, ProductID, &result, &res)
+			_funRet_, err = _imp.QueryCompanyBindWithProductID(offset, limit, ProductID, &result, &count, &res)
 		} else {
 			_imp := _val.(_impDeviceAuthProcessWithContext)
-			_funRet_, err = _imp.QueryCompanyBindWithProductID(tarsCtx, offset, limit, ProductID, &result, &res)
+			_funRet_, err = _imp.QueryCompanyBindWithProductID(tarsCtx, offset, limit, ProductID, &result, &count, &res)
 		}
 
 		if err != nil {
@@ -4387,7 +4518,12 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 
 			}
 
-			err = _os.Write_int32(res, 5)
+			err = _os.Write_int32(count, 5)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 6)
 			if err != nil {
 				return err
 			}
@@ -4425,6 +4561,14 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_tupRsp_.PutBuffer("result", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(count, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("count", _os.ToBytes())
+
+			_os.Reset()
 			err = _os.Write_int32(res, 0)
 			if err != nil {
 				return err
@@ -4441,6 +4585,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
 			_rspJson_["result"] = result
+			_rspJson_["count"] = count
 			_rspJson_["res"] = res
 
 			var _rspByte_ []byte
@@ -4459,6 +4604,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var limit int32
 		var CompanyID int32
 		var result []CompanyProductBind
+		var count int32
 		var res int32
 
 		if tarsReq.IVersion == basef.TARSVERSION {
@@ -4540,10 +4686,10 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impDeviceAuthProcess)
-			_funRet_, err = _imp.QueryProductBindWithCompanyID(offset, limit, CompanyID, &result, &res)
+			_funRet_, err = _imp.QueryProductBindWithCompanyID(offset, limit, CompanyID, &result, &count, &res)
 		} else {
 			_imp := _val.(_impDeviceAuthProcessWithContext)
-			_funRet_, err = _imp.QueryProductBindWithCompanyID(tarsCtx, offset, limit, CompanyID, &result, &res)
+			_funRet_, err = _imp.QueryProductBindWithCompanyID(tarsCtx, offset, limit, CompanyID, &result, &count, &res)
 		}
 
 		if err != nil {
@@ -4577,7 +4723,12 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 
 			}
 
-			err = _os.Write_int32(res, 5)
+			err = _os.Write_int32(count, 5)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 6)
 			if err != nil {
 				return err
 			}
@@ -4615,6 +4766,14 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_tupRsp_.PutBuffer("result", _os.ToBytes())
 
 			_os.Reset()
+			err = _os.Write_int32(count, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("count", _os.ToBytes())
+
+			_os.Reset()
 			err = _os.Write_int32(res, 0)
 			if err != nil {
 				return err
@@ -4631,6 +4790,7 @@ func (_obj *DeviceAuthProcess) Dispatch(tarsCtx context.Context, _val interface{
 			_rspJson_ := map[string]interface{}{}
 			_rspJson_["tars_ret"] = _funRet_
 			_rspJson_["result"] = result
+			_rspJson_["count"] = count
 			_rspJson_["res"] = res
 
 			var _rspByte_ []byte

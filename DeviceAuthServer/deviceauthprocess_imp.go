@@ -25,8 +25,8 @@ func (imp *DeviceAuthProcessImp) QueryCompanyDeviceCBindAll(tarsCtx context.Cont
 	}
 }
 
-func (imp *DeviceAuthProcessImp) QueryCompanyBindWithDeviceC(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CivetDevicePluginCenter.CompanyDeivceBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "deivce_class_id", DeviceClassID) {
+func (imp *DeviceAuthProcessImp) QueryCompanyBindWithDeviceC(tarsCtx context.Context, offset int32, limit int32, DeviceClassID int32, result *[]CivetDevicePluginCenter.CompanyDeivceBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "deivce_class_id", DeviceClassID) {
 		*res = 1
 		return 0, nil
 	} else {
@@ -35,8 +35,8 @@ func (imp *DeviceAuthProcessImp) QueryCompanyBindWithDeviceC(tarsCtx context.Con
 	}
 }
 
-func (imp *DeviceAuthProcessImp) QueryDeviceCBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CivetDevicePluginCenter.CompanyDeivceBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "company_id", CompanyID) {
+func (imp *DeviceAuthProcessImp) QueryDeviceCBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CivetDevicePluginCenter.CompanyDeivceBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "company_id", CompanyID) {
 		*res = 1
 		return 0, nil
 	} else {
@@ -88,8 +88,8 @@ func (imp *DeviceAuthProcessImp) QueryProductCompanyBindAll(tarsCtx context.Cont
 	}
 }
 
-func (imp *DeviceAuthProcessImp) QueryCompanyBindWithProductID(tarsCtx context.Context, offset int32, limit int32, ProductClassID int32, result *[]CivetDevicePluginCenter.CompanyProductBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "product_id", ProductClassID) {
+func (imp *DeviceAuthProcessImp) QueryCompanyBindWithProductID(tarsCtx context.Context, offset int32, limit int32, ProductClassID int32, result *[]CivetDevicePluginCenter.CompanyProductBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "product_id", ProductClassID) {
 		*res = 1
 		return 0, nil
 	} else {
@@ -98,8 +98,8 @@ func (imp *DeviceAuthProcessImp) QueryCompanyBindWithProductID(tarsCtx context.C
 	}
 }
 
-func (imp *DeviceAuthProcessImp) QueryProductBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CivetDevicePluginCenter.CompanyProductBind, res *int32) (ret int32, err error) {
-	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, "company_id", CompanyID) {
+func (imp *DeviceAuthProcessImp) QueryProductBindWithCompanyID(tarsCtx context.Context, offset int32, limit int32, CompanyID int32, result *[]CivetDevicePluginCenter.CompanyProductBind, count *int32, res *int32) (ret int32, err error) {
+	if TarDB.QueryRowsAllWithConditionOSLM(int(offset), int(limit), result, count, "company_id", CompanyID) {
 		*res = 1
 		return 0, nil
 	} else {

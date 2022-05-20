@@ -1,7 +1,6 @@
 package main
 
 import (
-	"CivetDevicePluginCenter"
 	instance "CivetRedis/CivetRedis/BaseInstance"
 	"Civets/CivetPluginsFrameWork"
 	"Civets/CivetRedis"
@@ -17,26 +16,28 @@ import (
 type ProcessImp struct {
 }
 
-func (imp *ProcessImp) LoadPlugins(tarsCtx context.Context, c *CivetDevicePluginCenter.Results) (ret int32, err error) {
+func (imp *ProcessImp) Reboot(tarsCtx context.Context, c *int32) (ret int32, err error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (imp *ProcessImp) LoadBinds(tarsCtx context.Context, c *CivetDevicePluginCenter.Results) (ret int32, err error) {
+func (imp *ProcessImp) Shutdown(tarsCtx context.Context, c *int32) (ret int32, err error) {
 	//TODO implement me
 	panic("implement me")
 }
+
 func running(ctx context.Context, consumerName string) {
 	for true {
-		result, _ := newCumser.ReadFromGroupQueue(ctx, consumerName, 1, 0)
-		//fmt.Println("the stream is", result[0].Stream)
-		//fmt.Println("the msg is", result[0].Messages)
-		//fmt.Println("the id is", result[0].Messages[0].ID)
+		result, err := newConsumer.ReadFromGroupQueue(ctx, consumerName, 1, 0)
+		fmt.Println(err)
+		fmt.Println("the stream is", result[0].Stream)
+		fmt.Println("the msg is", result[0].Messages)
+		fmt.Println("the id is", result[0].Messages[0].ID)
 		value := result[0].Messages[0].Values
 		for s, i := range value {
 			//fmt.Println("the value is", s)
 			//fmt.Println("the value is", i.(string))
-			_, err := PFW.CallFunc(s, "Analyst", i.(string))
+			_, err := PFW.Cal(s, "Analyst", i.(string))
 			if err != nil {
 				tars.TLOG.Error(err)
 			}
@@ -60,7 +61,7 @@ type Config struct {
 
 // Init servant init
 var PFW *CivetPluginsFrameWork.Plugins
-var newCumser *CivetRedis.Consumer
+var newConsumer *CivetRedis.Consumer
 var PlugsMapper map[string]plugin.Plugin
 var Plugs map[string]string
 
@@ -73,24 +74,24 @@ func (imp *ProcessImp) Init() error {
 	PFW = CivetPluginsFrameWork.GetIns()
 
 	redisconf := BaseInstance.RedisBaseConfig{
-		Host:     mc.RDHost,
-		Port:     mc.RDPort,
-		Password: mc.RDPassword,
-		UserName: mc.RDUserName,
+		Host:     "127.0.0.1",
+		Port:     "6379",
+		Password: "",
+		UserName: "",
 		Db:       0,
-		Size:     mc.RDSize,
+		Size:     20,
 	}
 	ctx := context.Background()
-	newCumser = CivetRedis.CreateConsumer((*instance.RedisBaseConfig)(&redisconf), "CivetDevicePluginCenter", "MessageQueue")
-	newCumser.CreateGroup(ctx, "$")
+	newConsumer = CivetRedis.CreateConsumer((*instance.RedisBaseConfig)(&redisconf), "CivetDevicePluginCenter", "MessageQueue")
+	newConsumer.CreateGroup(ctx, "$")
 	for i := 0; i < 2; i++ {
-		newCumser.CreateGroupConsumer(ctx, fmt.Sprintf("Process%d", i))
+		newConsumer.CreateGroupConsumer(ctx, fmt.Sprintf("Process%d", i))
 		go running(ctx, fmt.Sprintf("Process%d", i))
 	}
 	return nil
 }
 
-// Destroy servant destory
+// Destroy servant destroy
 func (imp *ProcessImp) Destroy() {
 	//destroy servant here:
 	//...

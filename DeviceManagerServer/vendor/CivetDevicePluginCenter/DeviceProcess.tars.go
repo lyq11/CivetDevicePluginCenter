@@ -234,13 +234,13 @@ func (_obj *DeviceProcess) CreateDeviceOneWayWithContext(tarsCtx context.Context
 }
 
 //RemoveDevice is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceProcess) RemoveDevice(DeviceID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceProcess) RemoveDevice(ID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = _os.Write_int32(DeviceID, 1)
+	err = _os.Write_int32(ID, 1)
 	if err != nil {
 		return ret, err
 	}
@@ -306,13 +306,13 @@ func (_obj *DeviceProcess) RemoveDevice(DeviceID int32, res *int32, _opt ...map[
 }
 
 //RemoveDeviceWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceProcess) RemoveDeviceWithContext(tarsCtx context.Context, DeviceID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceProcess) RemoveDeviceWithContext(tarsCtx context.Context, ID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = _os.Write_int32(DeviceID, 1)
+	err = _os.Write_int32(ID, 1)
 	if err != nil {
 		return ret, err
 	}
@@ -377,13 +377,13 @@ func (_obj *DeviceProcess) RemoveDeviceWithContext(tarsCtx context.Context, Devi
 }
 
 //RemoveDeviceOneWayWithContext is the proxy function for the method defined in the tars file, with the context
-func (_obj *DeviceProcess) RemoveDeviceOneWayWithContext(tarsCtx context.Context, DeviceID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
+func (_obj *DeviceProcess) RemoveDeviceOneWayWithContext(tarsCtx context.Context, ID int32, res *int32, _opt ...map[string]string) (ret int32, err error) {
 
 	var length int32
 	var have bool
 	var ty byte
 	_os := codec.NewBuffer()
-	err = _os.Write_int32(DeviceID, 1)
+	err = _os.Write_int32(ID, 1)
 	if err != nil {
 		return ret, err
 	}
@@ -637,6 +637,442 @@ func (_obj *DeviceProcess) EditDeviceOneWayWithContext(tarsCtx context.Context, 
 	_resp := new(requestf.ResponsePacket)
 
 	err = _obj.s.Tars_invoke(tarsCtx, 1, "EditDevice", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//SetDeviceProperties is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) SetDeviceProperties(DeviceID string, jsons string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(DeviceID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(jsons, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+	tarsCtx := context.Background()
+
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "SetDeviceProperties", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
+	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 3, true)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//SetDevicePropertiesWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) SetDevicePropertiesWithContext(tarsCtx context.Context, DeviceID string, jsons string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(DeviceID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(jsons, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "SetDeviceProperties", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
+	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 3, true)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//SetDevicePropertiesOneWayWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) SetDevicePropertiesOneWayWithContext(tarsCtx context.Context, DeviceID string, jsons string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(DeviceID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(jsons, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+
+	err = _obj.s.Tars_invoke(tarsCtx, 1, "SetDeviceProperties", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//AnalyzeDevice is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) AnalyzeDevice(ProductID string, Data string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(ProductID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(Data, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+	tarsCtx := context.Background()
+
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "AnalyzeDevice", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
+	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 3, true)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//AnalyzeDeviceWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) AnalyzeDeviceWithContext(tarsCtx context.Context, ProductID string, Data string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(ProductID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(Data, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+
+	err = _obj.s.Tars_invoke(tarsCtx, 0, "AnalyzeDevice", _os.ToBytes(), _status, _context, _resp)
+	if err != nil {
+		return ret, err
+	}
+
+	_is := codec.NewReader(tools.Int8ToByte(_resp.SBuffer))
+	err = _is.Read_int32(&ret, 0, true)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _is.Read_int32(&(*res), 3, true)
+	if err != nil {
+		return ret, err
+	}
+
+	if len(_opt) == 1 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+	} else if len(_opt) == 2 {
+		for k := range _context {
+			delete(_context, k)
+		}
+		for k, v := range _resp.Context {
+			_context[k] = v
+		}
+		for k := range _status {
+			delete(_status, k)
+		}
+		for k, v := range _resp.Status {
+			_status[k] = v
+		}
+
+	}
+	_ = length
+	_ = have
+	_ = ty
+	return ret, nil
+}
+
+//AnalyzeDeviceOneWayWithContext is the proxy function for the method defined in the tars file, with the context
+func (_obj *DeviceProcess) AnalyzeDeviceOneWayWithContext(tarsCtx context.Context, ProductID string, Data string, res *int32, _opt ...map[string]string) (ret int32, err error) {
+
+	var length int32
+	var have bool
+	var ty byte
+	_os := codec.NewBuffer()
+	err = _os.Write_string(ProductID, 1)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_string(Data, 2)
+	if err != nil {
+		return ret, err
+	}
+
+	err = _os.Write_int32((*res), 3)
+	if err != nil {
+		return ret, err
+	}
+
+	var _status map[string]string
+	var _context map[string]string
+	if len(_opt) == 1 {
+		_context = _opt[0]
+	} else if len(_opt) == 2 {
+		_context = _opt[0]
+		_status = _opt[1]
+	}
+	_resp := new(requestf.ResponsePacket)
+
+	err = _obj.s.Tars_invoke(tarsCtx, 1, "AnalyzeDevice", _os.ToBytes(), _status, _context, _resp)
 	if err != nil {
 		return ret, err
 	}
@@ -1064,14 +1500,18 @@ func (_obj *DeviceProcess) AddServantWithContext(imp _impDeviceProcessWithContex
 
 type _impDeviceProcess interface {
 	CreateDevice(device *Device, res *int32) (ret int32, err error)
-	RemoveDevice(DeviceID int32, res *int32) (ret int32, err error)
+	RemoveDevice(ID int32, res *int32) (ret int32, err error)
 	EditDevice(info *Device, searchKey string, searchValue string, res *int32) (ret int32, err error)
+	SetDeviceProperties(DeviceID string, jsons string, res *int32) (ret int32, err error)
+	AnalyzeDevice(ProductID string, Data string, res *int32) (ret int32, err error)
 	QueryAllDevice(offset int32, limit int32, devicelist *[]Device, count *int32, res *int32) (ret int32, err error)
 }
 type _impDeviceProcessWithContext interface {
 	CreateDevice(tarsCtx context.Context, device *Device, res *int32) (ret int32, err error)
-	RemoveDevice(tarsCtx context.Context, DeviceID int32, res *int32) (ret int32, err error)
+	RemoveDevice(tarsCtx context.Context, ID int32, res *int32) (ret int32, err error)
 	EditDevice(tarsCtx context.Context, info *Device, searchKey string, searchValue string, res *int32) (ret int32, err error)
+	SetDeviceProperties(tarsCtx context.Context, DeviceID string, jsons string, res *int32) (ret int32, err error)
+	AnalyzeDevice(tarsCtx context.Context, ProductID string, Data string, res *int32) (ret int32, err error)
 	QueryAllDevice(tarsCtx context.Context, offset int32, limit int32, devicelist *[]Device, count *int32, res *int32) (ret int32, err error)
 }
 
@@ -1195,12 +1635,12 @@ func (_obj *DeviceProcess) Dispatch(tarsCtx context.Context, _val interface{}, t
 			}
 		}
 	case "RemoveDevice":
-		var DeviceID int32
+		var ID int32
 		var res int32
 
 		if tarsReq.IVersion == basef.TARSVERSION {
 
-			err = _is.Read_int32(&DeviceID, 1, true)
+			err = _is.Read_int32(&ID, 1, true)
 			if err != nil {
 				return err
 			}
@@ -1211,9 +1651,9 @@ func (_obj *DeviceProcess) Dispatch(tarsCtx context.Context, _val interface{}, t
 
 			var _tupBuffer_ []byte
 
-			_reqTup_.GetBuffer("DeviceID", &_tupBuffer_)
+			_reqTup_.GetBuffer("ID", &_tupBuffer_)
 			_is.Reset(_tupBuffer_)
-			err = _is.Read_int32(&DeviceID, 0, true)
+			err = _is.Read_int32(&ID, 0, true)
 			if err != nil {
 				return err
 			}
@@ -1227,8 +1667,8 @@ func (_obj *DeviceProcess) Dispatch(tarsCtx context.Context, _val interface{}, t
 				return fmt.Errorf("Decode reqpacket failed, error: %+v", err)
 			}
 			{
-				_jsonStr_, _ := json.Marshal(_jsonDat_["DeviceID"])
-				if err = json.Unmarshal([]byte(_jsonStr_), &DeviceID); err != nil {
+				_jsonStr_, _ := json.Marshal(_jsonDat_["ID"])
+				if err = json.Unmarshal([]byte(_jsonStr_), &ID); err != nil {
 					return err
 				}
 			}
@@ -1241,10 +1681,10 @@ func (_obj *DeviceProcess) Dispatch(tarsCtx context.Context, _val interface{}, t
 		var _funRet_ int32
 		if _withContext == false {
 			_imp := _val.(_impDeviceProcess)
-			_funRet_, err = _imp.RemoveDevice(DeviceID, &res)
+			_funRet_, err = _imp.RemoveDevice(ID, &res)
 		} else {
 			_imp := _val.(_impDeviceProcessWithContext)
-			_funRet_, err = _imp.RemoveDevice(tarsCtx, DeviceID, &res)
+			_funRet_, err = _imp.RemoveDevice(tarsCtx, ID, &res)
 		}
 
 		if err != nil {
@@ -1409,6 +1849,264 @@ func (_obj *DeviceProcess) Dispatch(tarsCtx context.Context, _val interface{}, t
 			}
 
 			err = _os.Write_int32(res, 4)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.TUPVERSION {
+			_tupRsp_ := tup.NewUniAttribute()
+
+			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("", _os.ToBytes())
+			_tupRsp_.PutBuffer("tars_ret", _os.ToBytes())
+
+			_os.Reset()
+			err = _os.Write_int32(res, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("res", _os.ToBytes())
+
+			_os.Reset()
+			err = _tupRsp_.Encode(_os)
+			if err != nil {
+				return err
+			}
+		} else if tarsReq.IVersion == basef.JSONVERSION {
+			_rspJson_ := map[string]interface{}{}
+			_rspJson_["tars_ret"] = _funRet_
+			_rspJson_["res"] = res
+
+			var _rspByte_ []byte
+			if _rspByte_, err = json.Marshal(_rspJson_); err != nil {
+				return err
+			}
+
+			_os.Reset()
+			err = _os.Write_slice_uint8(_rspByte_)
+			if err != nil {
+				return err
+			}
+		}
+	case "SetDeviceProperties":
+		var DeviceID string
+		var jsons string
+		var res int32
+
+		if tarsReq.IVersion == basef.TARSVERSION {
+
+			err = _is.Read_string(&DeviceID, 1, true)
+			if err != nil {
+				return err
+			}
+
+			err = _is.Read_string(&jsons, 2, true)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.TUPVERSION {
+			_reqTup_ := tup.NewUniAttribute()
+			_reqTup_.Decode(_is)
+
+			var _tupBuffer_ []byte
+
+			_reqTup_.GetBuffer("DeviceID", &_tupBuffer_)
+			_is.Reset(_tupBuffer_)
+			err = _is.Read_string(&DeviceID, 0, true)
+			if err != nil {
+				return err
+			}
+
+			_reqTup_.GetBuffer("jsons", &_tupBuffer_)
+			_is.Reset(_tupBuffer_)
+			err = _is.Read_string(&jsons, 0, true)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.JSONVERSION {
+			var _jsonDat_ map[string]interface{}
+			_decoder_ := json.NewDecoder(bytes.NewReader(_is.ToBytes()))
+			_decoder_.UseNumber()
+			err = _decoder_.Decode(&_jsonDat_)
+			if err != nil {
+				return fmt.Errorf("Decode reqpacket failed, error: %+v", err)
+			}
+			{
+				_jsonStr_, _ := json.Marshal(_jsonDat_["DeviceID"])
+				if err = json.Unmarshal([]byte(_jsonStr_), &DeviceID); err != nil {
+					return err
+				}
+			}
+			{
+				_jsonStr_, _ := json.Marshal(_jsonDat_["jsons"])
+				if err = json.Unmarshal([]byte(_jsonStr_), &jsons); err != nil {
+					return err
+				}
+			}
+
+		} else {
+			err = fmt.Errorf("Decode reqpacket fail, error version: %d", tarsReq.IVersion)
+			return err
+		}
+
+		var _funRet_ int32
+		if _withContext == false {
+			_imp := _val.(_impDeviceProcess)
+			_funRet_, err = _imp.SetDeviceProperties(DeviceID, jsons, &res)
+		} else {
+			_imp := _val.(_impDeviceProcessWithContext)
+			_funRet_, err = _imp.SetDeviceProperties(tarsCtx, DeviceID, jsons, &res)
+		}
+
+		if err != nil {
+			return err
+		}
+
+		if tarsReq.IVersion == basef.TARSVERSION {
+			_os.Reset()
+
+			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 3)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.TUPVERSION {
+			_tupRsp_ := tup.NewUniAttribute()
+
+			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("", _os.ToBytes())
+			_tupRsp_.PutBuffer("tars_ret", _os.ToBytes())
+
+			_os.Reset()
+			err = _os.Write_int32(res, 0)
+			if err != nil {
+				return err
+			}
+
+			_tupRsp_.PutBuffer("res", _os.ToBytes())
+
+			_os.Reset()
+			err = _tupRsp_.Encode(_os)
+			if err != nil {
+				return err
+			}
+		} else if tarsReq.IVersion == basef.JSONVERSION {
+			_rspJson_ := map[string]interface{}{}
+			_rspJson_["tars_ret"] = _funRet_
+			_rspJson_["res"] = res
+
+			var _rspByte_ []byte
+			if _rspByte_, err = json.Marshal(_rspJson_); err != nil {
+				return err
+			}
+
+			_os.Reset()
+			err = _os.Write_slice_uint8(_rspByte_)
+			if err != nil {
+				return err
+			}
+		}
+	case "AnalyzeDevice":
+		var ProductID string
+		var Data string
+		var res int32
+
+		if tarsReq.IVersion == basef.TARSVERSION {
+
+			err = _is.Read_string(&ProductID, 1, true)
+			if err != nil {
+				return err
+			}
+
+			err = _is.Read_string(&Data, 2, true)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.TUPVERSION {
+			_reqTup_ := tup.NewUniAttribute()
+			_reqTup_.Decode(_is)
+
+			var _tupBuffer_ []byte
+
+			_reqTup_.GetBuffer("ProductID", &_tupBuffer_)
+			_is.Reset(_tupBuffer_)
+			err = _is.Read_string(&ProductID, 0, true)
+			if err != nil {
+				return err
+			}
+
+			_reqTup_.GetBuffer("Data", &_tupBuffer_)
+			_is.Reset(_tupBuffer_)
+			err = _is.Read_string(&Data, 0, true)
+			if err != nil {
+				return err
+			}
+
+		} else if tarsReq.IVersion == basef.JSONVERSION {
+			var _jsonDat_ map[string]interface{}
+			_decoder_ := json.NewDecoder(bytes.NewReader(_is.ToBytes()))
+			_decoder_.UseNumber()
+			err = _decoder_.Decode(&_jsonDat_)
+			if err != nil {
+				return fmt.Errorf("Decode reqpacket failed, error: %+v", err)
+			}
+			{
+				_jsonStr_, _ := json.Marshal(_jsonDat_["ProductID"])
+				if err = json.Unmarshal([]byte(_jsonStr_), &ProductID); err != nil {
+					return err
+				}
+			}
+			{
+				_jsonStr_, _ := json.Marshal(_jsonDat_["Data"])
+				if err = json.Unmarshal([]byte(_jsonStr_), &Data); err != nil {
+					return err
+				}
+			}
+
+		} else {
+			err = fmt.Errorf("Decode reqpacket fail, error version: %d", tarsReq.IVersion)
+			return err
+		}
+
+		var _funRet_ int32
+		if _withContext == false {
+			_imp := _val.(_impDeviceProcess)
+			_funRet_, err = _imp.AnalyzeDevice(ProductID, Data, &res)
+		} else {
+			_imp := _val.(_impDeviceProcessWithContext)
+			_funRet_, err = _imp.AnalyzeDevice(tarsCtx, ProductID, Data, &res)
+		}
+
+		if err != nil {
+			return err
+		}
+
+		if tarsReq.IVersion == basef.TARSVERSION {
+			_os.Reset()
+
+			err = _os.Write_int32(_funRet_, 0)
+			if err != nil {
+				return err
+			}
+
+			err = _os.Write_int32(res, 3)
 			if err != nil {
 				return err
 			}

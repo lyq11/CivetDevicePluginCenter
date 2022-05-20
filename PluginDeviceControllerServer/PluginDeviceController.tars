@@ -1,0 +1,35 @@
+module CivetDevicePluginCenter
+{
+	interface PluginDeviceController
+	{
+		int createDevice(string companyID,string ProductID,string DeviceID,out int res);
+		int delDevice(string companyID,string ProductID,string DeviceID,out int res);
+		int QueryDevice(string companyID,string ProductID,string DeviceID,out string jsons,out int res);
+		int setDeviceProp(string companyID,string ProductID,string DeviceID,string jsons,out int res);
+
+
+
+		int SetDeviceDesiredProperty();
+		int QueryDeviceDesiredProperty();
+		int DeleteDeviceDesiredProperty();
+
+
+
+		int CallDeviceService();
+		int CallDeviceDesiredService();
+		int QueryDeviceDesiredCallService();
+		
+
+		int QueryDeviceByCompanyID();
+		int QueryDeviceByProductID();
+
+
+		int getDeviceCountInfo();
+
+
+		int getDeviceJson(string ProductID,out string jsons,out int result);
+		int getDeviceJsonByTag(string tag,out string json,out int result);
+		int LoadPlugins(out int c); // Some example function
+		int LoadBinds(out int c); // Some example function
+	};
+};

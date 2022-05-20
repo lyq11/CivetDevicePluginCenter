@@ -16,7 +16,7 @@ var _ = codec.FromInt8
 // Device struct implement
 type Device struct {
 	ID            int32  `json:"ID"`
-	ProductID     int32  `json:"ProductID"`
+	ProductID     string `json:"ProductID"`
 	DeivceClassID int32  `json:"DeivceClassID"`
 	DeivceID      string `json:"DeivceID"`
 	Online        int32  `json:"online"`
@@ -38,7 +38,7 @@ func (st *Device) ReadFrom(_is *codec.Reader) error {
 		return err
 	}
 
-	err = _is.Read_int32(&st.ProductID, 1, false)
+	err = _is.Read_string(&st.ProductID, 1, false)
 	if err != nil {
 		return err
 	}
@@ -104,7 +104,7 @@ func (st *Device) WriteTo(_os *codec.Buffer) error {
 		return err
 	}
 
-	err = _os.Write_int32(st.ProductID, 1)
+	err = _os.Write_string(st.ProductID, 1)
 	if err != nil {
 		return err
 	}

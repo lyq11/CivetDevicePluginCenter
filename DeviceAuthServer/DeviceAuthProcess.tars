@@ -21,16 +21,16 @@ module CivetDevicePluginCenter
 	};
 	interface DeviceAuthProcess
 	{
-		int BindDeviceCompany(CompanyDeivceBind relation,out int res);
-		int UnBindDeviceCompany(CompanyDeivceBind relation,out int res);
+		int BindDeviceCompany(CompanyDeivceBind relation,out int res);  //bind Device with Company
+		int UnBindDeviceCompany(CompanyDeivceBind relation,out int res);  // unbind Device with Company
 		int QueryCompanyDeviceCBindAll(int offset,int limit,out vector<CompanyDeivceBind>result,out int count,out int res);
-		int QueryCompanyBindWithDeviceC(int offset,int limit,int DeviceClassID,out vector<CompanyDeivceBind> result,out int res);
-		int QueryDeviceCBindWithCompanyID(int offset,int limit,int CompanyID,out vector<CompanyDeivceBind> result,out int res);
+		int QueryCompanyBindWithDeviceC(int offset,int limit,int DeviceClassID,out vector<CompanyDeivceBind> result,out int count,out int res);
+		int QueryDeviceCBindWithCompanyID(int offset,int limit,int CompanyID,out vector<CompanyDeivceBind> result,out int count,out int res);
 
 		int BindProductCompany(CompanyProductBind relation,out int res);
 		int UnBindProductCompany(CompanyProductBind relation,out int res);
 		int QueryProductCompanyBindAll(int offset,int limit,out vector<CompanyProductBind>result,out int count,out int res);
-		int QueryCompanyBindWithProductID(int offset,int limit,int ProductID,out vector<CompanyProductBind> result,out int res);
-		int QueryProductBindWithCompanyID(int offset,int limit,int CompanyID,out vector<CompanyProductBind> result,out int res);
+		int QueryCompanyBindWithProductID(int offset,int limit,int ProductID,out vector<CompanyProductBind> result,out int count,out int res);
+		int QueryProductBindWithCompanyID(int offset,int limit,int CompanyID,out vector<CompanyProductBind> result,out int count,out int res);
 	};
 };
